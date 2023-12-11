@@ -9,7 +9,7 @@
 using namespace kmc;
 
 int main(int /*narg*/, char** /*varg*/) {
-  int n = 1 << 9;
+  int n = 1 << 9; // grid size
   double J = 1.; // Ising model parameter
   double duration = 100; // how long to integrate for (model time)
   bigint seed = 829102930L;
@@ -18,10 +18,10 @@ int main(int /*narg*/, char** /*varg*/) {
   Lattice latt({n, n});      // 2D (n x n)
   //Lattice latt({n, n, n}); // 3D (n x n x n)
   
-  // checkerboard starting state
+  // starting state
   for(int i = 0; i < n; i++) {
     for(int j = 0; j < n; j++) {
-      latt.setState({i, j}, (i + j) % 2 ? 1 : -1);
+      latt.setState({i, j}, (i + j) % 2 ? 1 : -1); // checkerboard
     }
   }
   
